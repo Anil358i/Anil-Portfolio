@@ -1,19 +1,24 @@
-# Workflow for deploying illU AI to GitHub Pages
+# Publishes the whole repository to GitHub Pages every time you commit to main.
+# Save this as .github/workflows/main.yml in your repository.
 name: Deploy static content to Pages
 
 on:
+  # Runs when you commit to the main branch
   push:
-    branches: ["main"] # Ensures it deploys every time you push to main
-  workflow_dispatch:   # Allows you to click "Run workflow" manually
+    branches: ["main"]
+  # Lets you run it by hand from the Actions tab
+  workflow_dispatch:
 
+# Permissions GitHub needs to publish to Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Only one deployment at a time
 concurrency:
   group: "pages"
-  cancel-in-progress: true # Stops older builds to save time and prevent errors
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -27,15 +32,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This must be '.' if index.html is in your root folder
-          path: './Anil-Portfolio'
+          # '.' means the whole repository: index.html, style.css and the images folder
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
