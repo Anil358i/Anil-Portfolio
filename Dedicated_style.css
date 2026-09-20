@@ -1,0 +1,231 @@
+/* ============================================================
+   Anil Adepu portfolio - style.css
+   Colours are set once in :root. Change them here to restyle the page.
+   ============================================================ */
+
+:root {
+  --bg: #F8F9FB;
+  --panel: #E6EAF1;
+  --ink: #0E1116;
+  --muted: #566070;
+  --rule: #D8DCE3;
+  --link: #1740E6;
+  --shadow: 0 14px 30px rgba(14, 17, 22, 0.18);
+  --img-radius: 16px;      /* how round the image corners are */
+  --img-ratio: 16 / 10;    /* image shape: wider number first = wider rectangle */
+  color-scheme: light;
+}
+
+/* Dark mode follows the visitor's device setting */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0C0F14;
+    --panel: #1A202A;
+    --ink: #E9ECF1;
+    --muted: #9AA4B2;
+    --rule: #252B35;
+    --link: #8FAAFF;
+    --shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-variation-settings: "opsz" 14;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+}
+a:hover { text-decoration-thickness: 3px; }
+a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- 1. Picture and 2. Three links ---------- */
+
+.profile {
+  text-align: center;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+.profile-photo {
+  display: block;
+  width: clamp(9rem, 26vw, 13rem);
+  height: clamp(9rem, 26vw, 13rem);
+  margin-inline: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--panel);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile h1 {
+  margin: 1.5rem 0 0;
+  font-size: clamp(2.25rem, 7vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  font-variation-settings: "opsz" 96;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* ---------- 3. Work experience and 4. Projects ---------- */
+
+.section {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--rule);
+}
+
+.section > h2 {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  font-variation-settings: "opsz" 48;
+}
+
+/* Three items per row on wide screens, two on tablets, one on phones */
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: start;
+}
+
+/* Rounded rectangle images */
+.item img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--img-ratio);
+  object-fit: cover;
+  border-radius: var(--img-radius);
+  background: var(--panel);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Pop effect when the mouse is over an image */
+@media (hover: hover) {
+  .item img:hover,
+  .profile-photo:hover {
+    z-index: 2;
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: var(--shadow);
+  }
+}
+
+/* Small press effect when tapped on a phone */
+.item img:active,
+.profile-photo:active {
+  transform: scale(1.02);
+}
+
+/* No movement for visitors who have asked their device to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .item img,
+  .profile-photo { transition: none; }
+  .item img:hover,
+  .profile-photo:hover,
+  .item img:active,
+  .profile-photo:active { transform: none; }
+}
+
+.item h3 {
+  margin: 1.25rem 0 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-variation-settings: "opsz" 24;
+}
+
+.item .meta {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.975rem;
+}
+
+.item ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+}
+.item li { margin-bottom: 0.5rem; }
+.item li::marker { color: var(--muted); }
+
+.item p.desc { margin: 1rem 0 0; }
+
+.item .stack {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.item .stack b { color: var(--ink); font-weight: 600; }
+
+.item .link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------- Links on the home page cards ---------- */
+
+.item .img-link { display: block; border-radius: var(--img-radius); }
+
+.item h3 a { color: inherit; text-decoration: none; }
+.item h3 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin-top: 0.9rem;
+}
+.links .link { margin-top: 0; }
+
+/* ---------- Footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 1.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
