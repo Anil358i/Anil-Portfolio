@@ -1,291 +1,62 @@
-/* ==========================================================
-   Anil Adepu portfolio
-   Layout: centred profile header, then left-aligned rows.
-   Every work/project entry is the same two-column row:
-   image on the left, text on the right, links pinned below.
-   ========================================================== */
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Developer &amp; Team Lead, Docklands Creative | Anil Adepu</title>
+  <meta name="description" content="Anil Adepu leads client website builds at Docklands Creative, London, using WordPress, Elementor, HTML, CSS and JavaScript.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-:root {
-  --bg: #f5f6f9;
-  --ink: #16192b;
-  --muted: #565d72;
-  --line: #dcdfe8;
-  --placeholder: #e4e7ef;
-  --accent: #2b3fe0;
+  <main class="detail wrap">
+    <a class="back" href="index.html#work">Back to work experience</a>
 
-  --font: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    <h1>Web Developer &amp; Team Lead</h1>
+    <p class="meta">Docklands Creative, London (Hybrid). 2026 – Present</p>
 
-  --img-col: 20rem;      /* width of the image column */
-  --col-gap: 2rem;       /* gap between image and text */
-  --measure: 65ch;       /* keeps text lines readable */
-}
+    <img class="detail-hero" src="images/work-docklands.jpg.png" width="1200" height="600" alt="Docklands Creative client website project">
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    <div class="detail-body">
+      <div class="detail-main">
+        <section class="detail-block">
+          <h2>Overview</h2>
+          <p>My role at Docklands Creative combines hands-on WordPress development with leading a small team and working directly with clients.</p>
+        </section>
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+        <section class="detail-block">
+          <h2>Featured build</h2>
+          <p>A multi-page client website built in WordPress with Elementor. It includes Home, About, Our Services, Collections, Contact, and Cart pages, and is currently in coming-soon mode ahead of launch.</p>
+        </section>
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-}
+        <section class="detail-block">
+          <h2>What I do</h2>
+          <ul>
+            <li>Lead the build of client business websites end-to-end using WordPress, Elementor, HTML, CSS, and JavaScript, from initial design through launch.</li>
+            <li>Coordinate a small development team via Slack and Microsoft 365, keeping projects on schedule and aligned with client requirements.</li>
+            <li>Manage direct client communication, translating business requirements into functional, on-brand websites delivered on time.</li>
+          </ul>
+        </section>
+      </div>
 
-img {
-  display: block;
-  max-width: 100%;
-}
+      <aside class="glance" aria-label="At a glance">
+        <h2>At a glance</h2>
+        <dl>
+          <div><dt>Role</dt><dd>Web Developer &amp; Team Lead</dd></div>
+          <div><dt>Company</dt><dd>Docklands Creative, London (Hybrid)</dd></div>
+          <div><dt>Period</dt><dd>2026 – Present</dd></div>
+          <div><dt>Tools</dt><dd>WordPress, Elementor, HTML, CSS, JavaScript, Slack, Microsoft 365</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </main>
 
-a {
-  color: inherit;
-}
+  <footer>
+    <div class="wrap">&copy; 2026 Anil Adepu</div>
+  </footer>
 
-a:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
-/* ---------- Page width ---------- */
-
-.wrap {
-  width: 100%;
-  max-width: 68rem;
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2rem);
-}
-
-/* ---------- Profile header ---------- */
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-block: 3.5rem 1.5rem;
-}
-
-.profile-photo {
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--placeholder);
-}
-
-.profile h1 {
-  margin: 1.25rem 0 0;
-  font-size: clamp(2.25rem, 6vw, 3.25rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.profile-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.625rem;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.profile-links a {
-  display: inline-block;
-  padding: 0.45rem 1.15rem;
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-.profile-links a:hover {
-  background: var(--ink);
-  color: var(--bg);
-}
-
-/* ---------- Sections ---------- */
-
-.section {
-  padding-block: 2.5rem 1rem;
-}
-
-.section h2 {
-  margin: 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--ink);
-  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
-}
-
-/* ---------- Entry list (work + projects) ---------- */
-
-.items {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* One row per entry: [image] [text] */
-.item {
-  display: grid;
-  grid-template-columns: minmax(0, var(--img-col)) minmax(0, 1fr);
-  column-gap: var(--col-gap);
-  align-items: start;
-  padding-block: 2rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.item:last-child {
-  border-bottom: 0;
-}
-
-/* Same 8:5 frame for every image, whatever the source size */
-.img-link {
-  display: block;
-  aspect-ratio: 8 / 5;
-  overflow: hidden;
-  border-radius: 10px;
-  background: var(--placeholder);
-}
-
-.img-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Text column: everything stacks from the top, left-aligned */
-.item-body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  text-align: left;
-}
-
-.item-body > * {
-  max-width: var(--measure);
-}
-
-.item h3 {
-  margin: 0;
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-}
-
-.item h3 a {
-  text-decoration: none;
-}
-
-.item h3 a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.meta {
-  margin: 0.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-/* Bullet lists (work) */
-.points {
-  margin: 0.875rem 0 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-}
-
-.points li {
-  margin: 0 0 0.5rem;
-  padding-left: 0.15rem;
-}
-
-.points li:last-child {
-  margin-bottom: 0;
-}
-
-.points li::marker {
-  color: var(--accent);
-}
-
-/* Paragraph description (projects) */
-.desc {
-  margin: 0.875rem 0 0;
-}
-
-.stack {
-  margin: 0.75rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.stack b {
-  color: var(--ink);
-  font-weight: 650;
-}
-
-/* Links row, always sits directly under the content */
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem 1.5rem;
-  margin-top: 1rem;
-}
-
-.link {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-  text-decoration-thickness: 1.5px;
-}
-
-.link:hover {
-  text-decoration-thickness: 3px;
-}
-
-/* ---------- Footer ---------- */
-
-footer {
-  margin-top: 2rem;
-  padding-block: 1.5rem 2.5rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* ---------- Smaller screens: image on top, text below ---------- */
-
-@media (max-width: 47.5rem) {
-  .item {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 1.25rem;
-    padding-block: 1.75rem;
-  }
-
-  .profile {
-    padding-block: 2.5rem 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-  }
-}
+</body>
+</html> This looks mess on the deployment please rearrange the content and the iamge with round corerns on the top and mattern on the down use apple site theme for this reference
